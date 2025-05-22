@@ -1,0 +1,68 @@
+{% load static %}
+<html>
+<head>
+<title>Heart Disease Prediction</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<center><font size="4" color="yellow">Design And Implementing Heart Disease Prediction
+Using Naives Bayesian</font></center>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul><center>
+	  <li><a href="{% url 'Predict' %}">Predict Your Heart Condition</a></li>
+      <li><a href="{% url 'index' %}">Logout</a></li>
+			
+		</center></ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.jpg' %}" width="870" height="230" alt="" />
+	</div>
+	<br/><br/>
+			<center><font size="3" color="red">{{ data|safe }}</font></center>
+			<br/><br/>
+	<p align="justify"><font size="3" style="font-family: Comic Sans MS" color='black'>
+		Abstract-Data mining, a great developing technique that
+revolves around exploring and digging out significant information
+from massive collection of data which can be further beneficial in
+examining and drawing out patterns for making business related
+decisions. Talking about the Medical domain, implementation of
+data mining in this field can yield in discovering and withdrawing
+valuable patterns and information which can prove beneficial in
+performing clinical diagnosis. The research focuses on heart
+disease diagnosis by considering previous data and information.
+To achieve this SHDP (Smart Heart Disease Prediction) is built via
+Navies Bayesian in order to predict risk factors concerning heart
+disease.</p><p align="justify"><font size="3" style="font-family: Comic Sans MS" color='black'>The speedy advancement of technology has led to
+remarkable rise in mobile health technology that being one of the
+web application. The required data is assembled in a standardized
+form. For predicting the chances of heart disease in a patient, the
+following attributes are being fetched from the medical profiles,
+these include: age, BP, cholesterol, sex, blood sugar etc... The
+collected attributes acts as input for the Navies Bayesian
+classification for predicting heart disease. The dataset utilized is
+split into two sections, 80% dataset is utilized for training and rest
+20% is utilized for testing.</p><p align="justify"><font size="3" style="font-family: Comic Sans MS" color='black'> The proposed approach includes
+following stages: dataset collection, user registration and login
+(Application based), classification via Navies Bayesian, prediction
+and secure data transfer by employing AES (Advanced
+Encryption Standard). Thereafter result is produced. The
+research elaborates and presents multiple knowledge abstraction
+techniques by making use of data mining methods which are
+adopted for heart disease prediction. The output reveals that the
+established diagnostic system effectively assists in predicting risk
+factors concerning heart diseases.
+
+</p>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>

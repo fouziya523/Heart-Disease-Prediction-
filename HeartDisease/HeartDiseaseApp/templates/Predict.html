@@ -1,0 +1,154 @@
+{% load static %}
+<html>
+<head>
+<title>Heart Disease Prediction</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+ <script LANGUAGE="Javascript" >
+function validate(){
+	var x=document.forms["f1"]["username"].value;
+	var y=document.forms["f1"]["password"].value;
+	var c=document.forms["f1"]["contact"].value;
+	var e=document.forms["f1"]["email"].value;
+	var a=document.forms["f1"]["address"].value;
+	if(x == null || x==""){
+		window.alert("Username must be enter");
+		document.f1.username.focus();
+		return false;
+	}
+	if(y == null || y==""){
+		window.alert("Password must be enter");
+		document.f1.password.focus();
+		return false;
+	}
+	if(c == null || c==""){
+		window.alert("Contact No must be enter");
+		document.f1.contact.focus();
+		return false;
+	}
+	if(isNaN(c)){
+		window.alert("Please enter valid contact number");
+		document.f1.contact.focus();
+		return false;
+	}
+	if(e == null || e==""){
+		window.alert("Email ID must be enter");
+		document.f1.email.focus();
+		return false;
+	}
+	var filter = /^([a-zA-Z0-9_\.\-])+\@(gmail+\.)+(com)+$/;
+	if (!filter.test(e)) {
+		window.alert('enter a valid email address');
+		document.f1.email.focus();
+		return false;
+	}
+	if(a == null || a==""){
+		window.alert("Address must be enter");
+		document.f1.address.focus();
+		return false;
+	}
+	return true;
+}
+		
+	
+	</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<center><font size="4" color="yellow">Design And Implementing Heart Disease Prediction
+Using Naives Bayesian</font></center>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul><center>
+	  <li><a href="{% url 'Predict' %}">Predict Your Heart Condition</a></li>
+      <li><a href="{% url 'index' %}">Logout</a></li>
+			
+		</center></ul>
+<br class="clearfix" />
+				</div>
+			
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.jpg' %}" width="870" height="230" alt="" />
+	</div>	
+			<center>
+<form name="f1" method="post" action={% url 'PredictHeartCondition' %} OnSubmit="return validate()">
+	{% csrf_token %}<br/>
+   <h3><b>Input Heart Condition Values Screen</b></h3>
+   
+	<font size="" color="black"><center>{{ data }}</center></font>
+						
+						<table align="center" width="80" >
+			 <tr><td><b>Age</b></td><td><input type="text" name="age" style="font-family: Comic Sans MS" size="10"/></td></tr>
+         
+		  
+		<tr><td><b>Gender (M:1,F:0)</b></td><td><select name="gender">
+		<option value="1">Male</option>
+		<option value="0">Female</option>
+		</td></tr>
+
+		<tr><td><b>Chest&nbsp;Pain&nbsp;Type</b></td><td><select name="cp">
+		<option value="0">typical angina</option>
+		<option value="1">atypical angina</option>
+		<option value="2">non-anginal pain</option>
+		<option value="3">asymptomatic</option>
+		</td></tr>
+
+		
+		<tr><td><b>Resting&nbsp;Blood&nbsp;Pressure</b></td><td><input type="text" name="trestbps" style="font-family: Comic Sans MS" size="15"/></td></tr>
+
+		<tr><td><b>Cholestoral</b></td><td><input type="text" name="chol" style="font-family: Comic Sans MS" size="15"/></td></tr>
+
+		<tr><td><b>Fasting&nbsp;Blood&nbsp;Sugar (T:1,F:0)</b></td><td><select name="fbs">
+		<option value="1">True</option>
+		<option value="0">False</option>
+		</td></tr>
+
+		<tr><td><b>Resting&nbsp;Electrocardiographic&nbsp;Results</b></td><td><select name="restecg">
+		<option value="0">Normal</option>
+		<option value="1">Having ST-T Wave Abnormality</option>
+		<option value="2">Showing Probable</option>
+		</td></tr>
+
+		<tr><td><b>Max&nbsp;HeartRate&nbsp;Achieved</b></td><td><input type="text" name="thalach" style="font-family: Comic Sans MS" size="15"/></td></tr>
+		
+		<tr><td><b>Exercise&nbsp;Induced&nbsp;Angina (Y:1,N:0)</b></td><td><select name="exang">
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+		</td></tr>
+
+		<tr><td><b>Old&nbsp;Peak</b></td><td><input type="text" name="oldpeak" style="font-family: Comic Sans MS" size="15"/></td></tr>
+
+		<tr><td><b>Slope&nbsp;Peak&nbsp;Exercise</b></td><td><select name="slope">
+		<option value="1">Upsloping</option>
+		<option value="2">Flat</option>
+		<option value="3">Downsloping</option>
+		</td></tr>
+
+		<tr><td><b>Total&nbsp;Major&nbsp;Vessel</b></td><td><select name="ca">
+		<option value="0">0</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		</td></tr>
+
+		<tr><td><b>Thal</b></td><td><select name="thal">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		</td></tr>
+         
+			<tr><td></td><td><input type="submit" value="Submit">
+			</td>
+			</table>
+				</div>	
+					
+				</div>
+				<br/><br/><br/><br/><br/><br/>
+	</body>
+</html>
